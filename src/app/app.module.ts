@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    QuiensoyComponent
+    QuiensoyComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
