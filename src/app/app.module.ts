@@ -8,6 +8,9 @@ import { HomeComponent } from './componentes/home/home.component';
 import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { FormsModule } from '@angular/forms';
+import { PptComponent } from './componentes/ppt/ppt.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     QuiensoyComponent,
-    RegistroComponent
+    RegistroComponent,
+    PptComponent,
+    TatetiComponent,
+    MemotestComponent
   ],
   imports: [
     BrowserModule,

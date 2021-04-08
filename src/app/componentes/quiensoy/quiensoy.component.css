@@ -1,0 +1,53 @@
+nav{
+    /* background-image:url('../../../assets/imagenes/backTron2adw.png');  */
+    background-color:#61e6fd;
+}
+h1, h3, p{
+    font-family: Lucida Sans;
+}
+
+.imagenDeQuienSoy{
+    width: 100%;
+   
+    }
+body {
+    /* font: sans-serif; */
+    line-height: 1.8;
+    color: #f5f6f7;
+}
+p {font-size: 16px;}
+.margin {margin-bottom: 45px;}
+.bg-1 { 
+    /* background-image:url('../../../assets/imagenes/backTron2adw.png'); */
+    /* background-color: #1abc9c; */
+    color: #ffffff;
+}
+.bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+.bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+.bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+}
+.container-fluid {
+    font: sans-serif;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+/* .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+} */
