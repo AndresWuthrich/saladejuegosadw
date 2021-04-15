@@ -1,4 +1,3 @@
-<p>registro works!</p>
 <p>falta generar el nuevo usuario</p>
 
 <a routerLink="/">Home</a>
@@ -12,8 +11,9 @@
      
     </div>
     <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
-    <button  class="cancelbtn"  routerLink="/" style="width:auto;">No acepto</button>
+    <button class="btn btn-lg btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
+    <button class="btn btn-lg btn-danger" routerLink="/" style="width:auto;">No acepto</button>
+    <!-- <button  class="cancelbtn"  routerLink="/" style="width:auto;">No acepto</button> -->
     <div id="id01" class="modal">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
       <form class="modal-content animate" >
@@ -43,9 +43,10 @@
           </div>      
           
           <div class="clearfix">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button>
+            <button class="btn btn-lg btn-danger" type="button" onclick="document.getElementById('id01').style.display='none'">Me arrepenti</button>
+            <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button> -->
             <!-- <button type="submit" (click)="registrar(mail, pass, pass2)" class="signupbtn">Registrarme</button> -->
-            <button type="submit" class="signupbtn">Registrarme</button>
+            <button class="btn btn-lg btn-success" type="submit">Registrarme</button>
           </div>
         </div>
       </form>

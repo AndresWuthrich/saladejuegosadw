@@ -1,7 +1,35 @@
-nav{
-    /* background-image:url('../../../assets/imagenes/backTron2adw.png');  */
-    background-color:#61e6fd;
+html {
+    font-size: 14px;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  .container {
+    max-width: 960px;
+  }
+  
+  .pricing-header {
+    max-width: 700px;
+  }
+  
+  .card-deck .card {
+    min-width: 220px;
+  }
+  
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+  
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+    
+  body{
+    background-color: lightsteelblue;
 }
+  
+  
+  
 h1, h3, p{
     font-family: Lucida Sans;
 }
@@ -10,18 +38,17 @@ h1, h3, p{
     width: 100%;
    
     }
-body {
-    /* font: sans-serif; */
+/* body {
     line-height: 1.8;
     color: #f5f6f7;
-}
+} */
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
-.bg-1 { 
+/*.bg-1 { 
     /* background-image:url('../../../assets/imagenes/backTron2adw.png'); */
     /* background-color: #1abc9c; */
-    color: #ffffff;
-}
+    /* color: #ffffff;
+} */
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
