@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Mensaje } from 'src/app/clases/mensaje';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
@@ -15,6 +16,8 @@ export class ChatComponent implements OnInit {
   // mensaje = '';
   mensaje: Mensaje = new Mensaje();
   elemento: any;
+
+  public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
 
   constructor(public auth: AuthService,
     private chat: MensajesService) {
@@ -46,5 +49,9 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  Logout(){
+    this.auth.Logout();
   }
 }

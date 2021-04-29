@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-encuesta',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncuestaComponent implements OnInit {
 
-  constructor() { }
+  public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
+
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  Logout(){
+    this.auth.Logout();
+  }
 }
