@@ -1,46 +1,74 @@
-<p>ppt works!</p>
-<a routerLink="/">Home</a>
+<body>
 
-<!-- <p>ppt works!</p> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div style="text-align:center">
-  <h1>
-    <!-- {{nuevoJuego.nombre}}! -->
-  </h1>
- </div>
-<h2></h2>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Sala de Juegos</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" routerLink="/">Home</a>
+      <a class="p-2 text-dark" routerLink="/juegos">Juegos</a>
+      <a class="p-2 text-dark" routerLink="/quiensoy">Quien soy?</a>
+      <a class="p-2 text-dark" href="https://github.com/AndresWuthrich/saladejuegosadw">en GitHub</a>
 
-<form name="juego">
-    <ul>
-        <!-- <li>
-           <p><button class="button btn btn-info btn-lg" (click)="jugar('piedra')">Piedra</button></p>
-        </li>
-        <li>
-          <p><button class="button btn btn-info btn-lg" (click)="jugar('papel')">Papel</button></p>
-        </li>
-        <li>
-          <p><button class="button btn btn-info btn-lg" (click)="jugar('tijera')">Tijera</button></p>
-        </li> -->
+      <div *ngIf="userLogueado | async as user">
+        <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2 text-dark" routerLink="/chat">Chat</a>
+        </nav>
+      </div>
+    </nav>
 
-        <li>
-            <p><button class="button btn btn-info btn-lg" >Piedra</button></p>
-         </li>
-         <li>
-           <p><button class="button btn btn-info btn-lg" >Papel</button></p>
-         </li>
-         <li>
-           <p><button class="button btn btn-info btn-lg" >Tijera</button></p>
-         </li>
- 
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" *ngIf="userLogueado | async as user; else login">
+        <h5 class="my-0 mr-md-auto font-weight-normal"><i>{{ (userLogueado | async)?.email}}</i> </h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="btn btn-outline-primary" (click)='Logout()'>Logout</a>
+          </nav> 
+      </div>
+      <ng-template #login>
+        <a class="btn btn-outline-primary" routerLink="/login">Login</a>
+        <a class="btn btn-outline-primary" routerLink="/registro">Registrarse</a>
+      </ng-template>
+  </div>
 
-        <!-- <li [hidden]="elegido" class="container" style="text-align:center">
-            <h2>Elemento elegido por tu rival:</h2>
-            <h2>{{this.nuevoJuego.elegidoMaquina}}</h2>
-        </li>
-    
-        <li [hidden]="elegido">
-          <h2>{{resultado}}</h2>
-        </li> -->
 
-    </ul>
-</form>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div style="text-align:center">
+    <h1>
+      {{nuevoJuego.nombre}}
+    </h1>
+    <hr>
+
+   </div>
+
+   <form name="juego">
+      <ul>
+          <!-- <li>
+             <p><button class="button btn btn-info btn-lg" (click)="jugar('piedra')">Piedra</button></p>
+          </li>
+          <li>
+            <p><button class="button btn btn-info btn-lg" (click)="jugar('papel')">Papel</button></p>
+          </li>
+          <li>
+            <p><button class="button btn btn-info btn-lg" (click)="jugar('tijera')">Tijera</button></p>
+          </li> -->
+  
+          <li>
+              <p><button class="button btn btn-info btn-lg" >Piedra</button></p>
+           </li>
+           <li>
+             <p><button class="button btn btn-info btn-lg" >Papel</button></p>
+           </li>
+           <li>
+             <p><button class="button btn btn-info btn-lg" >Tijera</button></p>
+           </li>
+   
+  
+          <!-- <li [hidden]="elegido" class="container" style="text-align:center">
+              <h2>Elemento elegido por tu rival:</h2>
+              <h2>{{this.nuevoJuego.elegidoMaquina}}</h2>
+          </li>
+      
+          <li [hidden]="elegido">
+            <h2>{{resultado}}</h2>
+          </li> -->
+  
+      </ul>
+  </form>  
+</body>

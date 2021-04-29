@@ -1,4 +1,6 @@
 import { Component, OnInit ,Input,Output,EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { Tateti } from '../../clases/tateti';
 
 // import { LocalStorageService } from '../../servicios/localStorage.service';
@@ -22,7 +24,9 @@ export class TatetiComponent implements OnInit {
   ganador=false;
   empate=false;
 
-  constructor() {
+  public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
+
+  constructor(public auth: AuthService) {
     this.nuevoJuego = new Tateti();
     console.info("Tateti:");//,this.nuevoJuego);      
 
@@ -113,5 +117,9 @@ export class TatetiComponent implements OnInit {
         this.posiciones[1][1]!='-' && this.posiciones[1][2]!='-' && this.posiciones[2][0]!='-' && this.posiciones[2][1]!='-' && 
         this.posiciones[2][2]!='-')
           this.empate=true;
+  }
+
+  Logout(){
+    this.auth.Logout();
   }
 }

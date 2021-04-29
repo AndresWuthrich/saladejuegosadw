@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Mensaje } from 'src/app/clases/mensaje';
 import { AuthService } from 'src/app/services/auth.service';
 import { MensajesService } from 'src/app/services/mensajes.service';
@@ -11,23 +12,36 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 })
 export class HomeComponent implements OnInit {
 
+  email: string = '';
+  password: string = '';
   mensaje: Mensaje = new Mensaje();
-  constructor(private router: Router,
-    private authService: AuthService,
-    private mensajesService: MensajesService) { }
+  
+  public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
+  
+  // constructor(private router: Router,
+  //   public auth: AuthService,
+  //   private mensajesService: MensajesService) { }
 
+
+
+    constructor(public auth: AuthService) { }
+  
   ngOnInit(): void {
   }
   
-  Registro(){
-    this.authService.usuario = 'Andres';
-    this.router.navigate(['registro']);
-  }
+  // Registro(){
+  //   // this.auth.usuario = 'Andres';
+  //   this.router.navigate(['registro']);
+  // }
 
-  EnviarMensaje(){
-    console.log("msg 1");
-    this.mensajesService.create(this.mensaje).then(() => {
-      console.log("Mensaje enviado");
-    });
+  // EnviarMensaje(){
+  //   console.log("msg 1");
+  //   this.mensajesService.create(this.mensaje).then(() => {
+  //     console.log("Mensaje enviado");
+  //   });
+  // }
+
+  Logout(){
+    this.auth.Logout();
   }
 }

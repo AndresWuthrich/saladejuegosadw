@@ -14,6 +14,7 @@ export class RegistroComponent implements OnInit {
   private dbpath = '/usuarios';
 
   usuarioIngresado: any;
+  
   constructor(public auth: AuthService) {
     // this.usuarioIngresado = this.authService.usuario;
    }

@@ -1,0 +1,71 @@
+<body>
+
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Sala de Juegos</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" routerLink="/">Home</a>
+      <a class="p-2 text-dark" routerLink="/juegos">Juegos</a>
+      <a class="p-2 text-dark" routerLink="/quiensoy">Quien soy?</a>
+      <a class="p-2 text-dark" href="https://github.com/AndresWuthrich/saladejuegosadw">en GitHub</a>
+
+      <div *ngIf="userLogueado | async as user">
+        <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2 text-dark" routerLink="/chat">Chat</a>
+        </nav>
+      </div>
+    </nav>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" *ngIf="userLogueado | async as user; else login">
+        <h5 class="my-0 mr-md-auto font-weight-normal"><i>{{ (userLogueado | async)?.email}}</i> </h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="btn btn-outline-primary" (click)='Logout()'>Logout</a>
+          </nav> 
+      </div>
+      <ng-template #login>
+        <a class="btn btn-outline-primary" routerLink="/login">Login</a>
+        <a class="btn btn-outline-primary" routerLink="/registro">Registrarse</a>
+      </ng-template>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div style="text-align:center">
+    <h1>
+      {{nuevoJuego.nombre}}
+    </h1>
+    <hr>
+
+  </div>
+
+  
+  <div class="container">
+    <div class="simonBoard">
+
+      <div class="pad" id="pad1" colour="green"></div>
+      <div class="pad" id="pad2" colour="red"></div>
+      <div class="pad" id="pad3" colour="yellow"></div>
+      <div class="pad" id="pad4" colour="blue"></div>
+
+      <!-- <div class="pad" id="pad1" colour="green" (click)="validate($event)"></div>
+      <div class="pad" id="pad2" colour="red" (click)="validate($event)"></div>
+      <div class="pad" id="pad3" colour="yellow" (click)="validate($event)"></div>
+      <div class="pad" id="pad4" colour="blue" (click)="validate($event)"></div> -->
+
+      <div class="controls">
+        <!-- <button type="button" class="btn btn-success" (click)="startGame()" id="start">Comienzo</button> -->
+        <button type="button" class="btn btn-success" id="start">Comienzo</button>
+        <button type="button" class="btn btn-warning" (click)="restartGame()" id="reset">Nuevo</button>
+      </div>
+    </div>
+  
+    <div *ngIf="terminoJuego" id='resultado' class="boton" style="width: 200px; height: 100px;">
+      <!-- <h2>{{resultado}}</h2> -->
+      <!-- <img src="{{imagen}}"> -->
+    </div>
+  
+    <!-- <div>
+      <img src="../../../assets/imagenes/outOfOrderadw.jpg" class="boton" style="width: 300px; height: 300px;">
+    </div> -->
+  </div>
+  <div id="snackbar"></div>
+  
+</body>

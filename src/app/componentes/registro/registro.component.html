@@ -1,8 +1,3 @@
-<p>falta generar el nuevo usuario</p>
-<!-- <h1>{{authService.us}}</h1> -->
-
-<a routerLink="/">Home</a>
-
 <body>
     <div class="jumbotron">
       <h2 id="terminos">Terminos y condiciones</h2>
@@ -21,11 +16,11 @@
 
         <div class="container" *ngIf="!(auth.usuario | async)">
           <label><b>Email</b></label>
-          <input [(ngModel)]="email" type="text" placeholder="Ingresa tu correo" name="email" required>
+          <input [(ngModel)]="email" type="text" placeholder="Email" name="email" required>
           <br>
     
           <label><b>Clave</b></label>
-          <input [(ngModel)]="password" type="password" placeholder="Aca la clave" name="psw" required>
+          <input [(ngModel)]="password" type="password" placeholder="Contraseña" name="psw" required>
           <br>
     
           <!-- <label><b>Repita la clave</b></label> -->
@@ -39,18 +34,18 @@
             <!-- <h1 [hidden]="coinciden" style="color: red;">Las contraseñas ingresadas no coinciden</h1> -->
           </div>
           <div >
-            <!-- <h1 [hidden]="yaRegistrado" style="color: red;">El Usuario ya se encuentra registrado</h1> -->
+            <h1 class="text-danger">{{auth.errorRegistro}}</h1>
           </div>      
           
           <div class="clearfix">
             <button class="btn btn-lg btn-danger" type="button" onclick="document.getElementById('id01').style.display='none'">Me arrepenti</button>
-            <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button> -->
-            <!-- <button type="submit" (click)="registrar(mail, pass, pass2)" class="signupbtn">Registrarme</button> -->
             <button class="btn btn-lg btn-success" type="submit" (click)="Registro()">Registrarme</button>
           </div>
         </div>
       </form>
     </div>
+
+    
     
     <script>
     // Get the modal

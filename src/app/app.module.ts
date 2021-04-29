@@ -18,6 +18,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services/auth.service';
 import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
+import { ChatComponent } from './componentes/chat/chat.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 // const routes: Routes = [
 //   {path: '', component: HomeComponent},
@@ -39,7 +41,9 @@ import { PageNotFoundComponent } from './componentes/page-not-found/page-not-fou
     // PptComponent,
     // TatetiComponent,
     // MemotestComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChatComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,

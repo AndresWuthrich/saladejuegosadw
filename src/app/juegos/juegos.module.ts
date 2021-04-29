@@ -6,6 +6,7 @@ import { JuegosComponent } from './juegos.component';
 import { MemotestComponent } from './memotest/memotest.component';
 import { TatetiComponent } from './tateti/tateti.component';
 import { PptComponent } from './ppt/ppt.component';
+import { SimonComponent } from './simon/simon.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PptComponent } from './ppt/ppt.component';
     JuegosComponent,
     MemotestComponent,
     TatetiComponent,
-    PptComponent
+    PptComponent,
+    SimonComponent
   ],
   imports: [
     CommonModule,
