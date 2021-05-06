@@ -15,7 +15,11 @@ export class AuthService {
   public errorRegistro: String = '';
 
   constructor(public fireStoreAuth: AngularFireAuth, private router: Router) {
-    this.usuario = fireStoreAuth.authState;
+    // this.usuario = fireStoreAuth.authState;
+    this.usuario = fireStoreAuth.authState.subscribe(user =>{
+      this.usuario.email = user?.email;
+      this.usuario.uid = user?.uid;
+    });
    }
 
   Registro(email: string, password: string){

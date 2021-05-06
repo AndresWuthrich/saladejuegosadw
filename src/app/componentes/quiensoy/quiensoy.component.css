@@ -24,14 +24,10 @@ html {
   
   .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
     
-  body{
-    background-color: lightseagreen;
-}
-  
-  
-  
-h1, h3, p{
-    font-family: Lucida Sans;
+
+body{
+  background-color: lightseagreen;
+  font-family:'Gill Sans';
 }
 
 .imagenDeQuienSoy{
@@ -62,7 +58,6 @@ p {font-size: 16px;}
     color: #fff;
 }
 .container-fluid {
-    font: sans-serif;
     padding-top: 70px;
     padding-bottom: 70px;
 }

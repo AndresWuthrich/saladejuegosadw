@@ -1,5 +1,4 @@
 .container{
-    /* font-family: Impact; */
     border: 10px solid #f1f1f1;
     padding: 10px;
     background:gray;
@@ -12,9 +11,10 @@
     margin: 10px;
 }
 
-/* h1, h2{
-    font-family: Impact;
-} */
+div{
+    font-family:'Gill Sans';
+}
+
 h2{
     color: white;
 

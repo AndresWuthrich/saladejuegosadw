@@ -13,39 +13,37 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 })
 export class ChatComponent implements OnInit {
 
-  // mensaje = '';
-  mensaje: Mensaje = new Mensaje();
+  mensaje: string = '';
+  // mensaje: Mensaje = new Mensaje();
   elemento: any;
 
   public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
 
-  constructor(public auth: AuthService,
-    private chat: MensajesService) {
-  // constructor(public chat: ChatService) {
-    // this.chat.cargarMensajes()
-    // .subscribe(() => {
+  constructor(public auth: AuthService, public chat: ChatService) {
+    this.chat.cargarMensajes()
+    .subscribe(() => {
 
-    //   setTimeout(() => {
-    //     this.elemento.scrollTop = this.elemento.scrollHeight;
-    //   }, 20);
-    // });
+      setTimeout(() => {
+        this.elemento.scrollTop = this.elemento.scrollHeight;
+      }, 20);
+    });
    }
 
-   EnviarMensaje() {
-    console.log("msg 1");
-    this.chat.create(this.mensaje).then(() => {
-      console.log("Mensaje enviado");
-    });
+   enviarMensaje() {
+    // console.log("msg 1");
+    // this.chat.create(this.mensaje).then(() => {
+    //   console.log("Mensaje enviado");
+    // });
 
-    // console.log(this.mensaje);
+    console.log(this.mensaje);
 
-    // if (this.mensaje.length === 0) {
-    //   return;
-    // }
+    if (this.mensaje.length === 0) {
+      return;
+    }
 
-    // this.chat.AgregarMensaje(this.mensaje)
-      // .then(() => this.mensaje = '')
-      // .catch((err) => console.error('error al enviar', err));
+    this.chat.agregarMensaje(this.mensaje)
+      .then(() => this.mensaje = '')
+      .catch((err) => console.error('error al enviar', err));
   }
 
   ngOnInit(): void {

@@ -29,22 +29,18 @@
     
     <div>
       <div>
-    
-        <!-- <div *ngFor="let chat of chatService.chats" [ngClass]="{ 'text-right': chatService.usuario.uid == chat.uid }">
-          <span class="badge" [ngClass]="{ 'badge-primary': chatService.usuario.uid == chat.uid,
-                                              'badge-success': chatService.usuario.uid != chat.uid }">
+        <div *ngFor="let chat of chat.chats" [ngClass]="{ 'text-right': auth.usuario.uid == chat.uid }">
+          <span class="badge" [ngClass]="{ 'badge-primary': auth.usuario.uid == chat.uid,
+                                              'badge-success': auth.usuario.uid != chat.uid }">
             {{ chat.nombre }} {{ chat.fecha | date: 'd/M/yy, h:mm a' }}
-          </span> -->
+          </span> 
           <!-- <p>
-            {{ chat.mensaje }}
+            {{ chat.texto }}
           </p> -->
-        <!-- </div> -->
-    
+        </div>
       </div>
 
-      <input class="form-control" type="text" [(ngModel)]="mensaje.texto" placeholder="Mensaje">
-      <button (click)="EnviarMensaje()">Enviar mensaje</button>
-<!-- 
-      <input class="form-control" type="text" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="EnviarMensaje()" placeholder="Mensaje"> -->
+      <input class="form-control" type="text" [(ngModel)]="mensaje" placeholder="Mensaje">
+      <button (click)="enviarMensaje()">Enviar mensaje</button>
     </div>
 </body>

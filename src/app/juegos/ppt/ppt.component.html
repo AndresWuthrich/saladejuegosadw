@@ -27,48 +27,30 @@
       </ng-template>
   </div>
 
+    <div class="pricing-header mx-auto text-center">
+      <h1 class="display-4">Ppt</h1>    
+      <hr>
+  </div>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div style="text-align:center">
-    <h1>
-      {{nuevoJuego.nombre}}
-    </h1>
-    <hr>
+  <div>
+        <div>
+           <p><button class="button btn btn-info btn-lg" (click)="jugar('piedra')">Piedra</button></p>
+        </div>
+        <div>
+          <p><button class="button btn btn-info btn-lg" (click)="jugar('papel')">Papel</button></p>
+        </div>
+        <div>
+          <p><button class="button btn btn-info btn-lg" (click)="jugar('tijera')">Tijera</button></p>
+        </div>
 
-   </div>
-
-   <form name="juego">
-      <ul>
-          <!-- <li>
-             <p><button class="button btn btn-info btn-lg" (click)="jugar('piedra')">Piedra</button></p>
-          </li>
-          <li>
-            <p><button class="button btn btn-info btn-lg" (click)="jugar('papel')">Papel</button></p>
-          </li>
-          <li>
-            <p><button class="button btn btn-info btn-lg" (click)="jugar('tijera')">Tijera</button></p>
-          </li> -->
-  
-          <li>
-              <p><button class="button btn btn-info btn-lg" >Piedra</button></p>
-           </li>
-           <li>
-             <p><button class="button btn btn-info btn-lg" >Papel</button></p>
-           </li>
-           <li>
-             <p><button class="button btn btn-info btn-lg" >Tijera</button></p>
-           </li>
-   
-  
-          <!-- <li [hidden]="elegido" class="container" style="text-align:center">
-              <h2>Elemento elegido por tu rival:</h2>
-              <h2>{{this.nuevoJuego.elegidoMaquina}}</h2>
-          </li>
-      
-          <li [hidden]="elegido">
-            <h2>{{resultado}}</h2>
-          </li> -->
-  
-      </ul>
-  </form>  
+        <div [hidden]="elegido" class="container" style="text-align:center">
+            <h2>Elemento elegido por tu rival:</h2>
+            <h2>{{this.elegidoMaquina}}</h2>
+        </div>
+    
+        <div [hidden]="elegido">
+        
+          <h2>{{resultado}}</h2>
+        </div>
+      </div>  
 </body>

@@ -9,6 +9,7 @@ html {
 
 body{
     background-color: lightsteelblue;
+    font-family:'Gill Sans';
 }
 .container {
   max-width: 960px;
@@ -27,7 +28,9 @@ body{
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
   
-
+div{
+  font-family:'Gill Sans';
+}
 
 
 
