@@ -1,10 +1,8 @@
 import { Component, OnInit ,Input,Output,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { Tateti } from '../../clases/tateti';
-
-// import { LocalStorageService } from '../../servicios/localStorage.service';
-// import { Jugador } from '../../clases/jugador';
+import { ResultadosService } from 'src/app/services/resultados.service';
 
 @Component({
   selector: 'app-tateti',
@@ -13,11 +11,6 @@ import { Tateti } from '../../clases/tateti';
 })
 
 export class TatetiComponent implements OnInit {
-  @Output() 
-  enviarJuego: EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego: Tateti;
-  // servicio: LocalStorageService;
-  // jugadorLogueado: Jugador;
 
   ganoO=false;
   ganoX=false;
@@ -26,12 +19,9 @@ export class TatetiComponent implements OnInit {
 
   public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
 
-  constructor(public auth: AuthService) {
-    this.nuevoJuego = new Tateti();
+  constructor(public auth: AuthService, public resulService: ResultadosService, private router: Router) {
+    this.resulService.cargarResultados().subscribe(()=>{});
     console.info("Tateti:");//,this.nuevoJuego);      
-
-    // this.servicio = new LocalStorageService();
-    // this.jugadorLogueado=this.servicio.traerLogeado();  
   }
 
   ngOnInit(): void {
@@ -73,26 +63,16 @@ export class TatetiComponent implements OnInit {
 
   chequear(ficha:string){
     if (ficha=="X"){
+      console.log("X");
       this.ganoX=true;
       this.ganador=true;
+      this.resulService.agregarResultado("Perdió","Tateti");
     }  
     else{
       this.ganoO=true;
       this.ganador=true;
+      this.resulService.agregarResultado("Ganó","Tateti");
     }  
-    // this.ocultarVerificar=true;
-    // this.ganador= true;
-    // clearInterval(this.repetidor);
-
-    // this.perdio=!(this.nuevoJuego.verificar());
-
-    this.nuevoJuego.gano= this.nuevoJuego.verificar();
-    // if( (typeof this.jugadorLogueado !== 'undefined') &&  (this.jugadorLogueado !== null))
-    // {
-    //   this.nuevoJuego.jugador=this.jugadorLogueado.mail;
-    // }
-    
-    // this.servicio.guardarJuego(this.nuevoJuego);
 }
   verificarGano(ficha: string) {
     if (this.posiciones[0][0]==ficha && this.posiciones[0][1]==ficha && this.posiciones[0][2]==ficha)
@@ -115,11 +95,20 @@ export class TatetiComponent implements OnInit {
   verificarEmpate() {
     if (this.posiciones[0][0]!='-' && this.posiciones[0][1]!='-' && this.posiciones[0][2]!='-' && this.posiciones[1][0]!='-' && 
         this.posiciones[1][1]!='-' && this.posiciones[1][2]!='-' && this.posiciones[2][0]!='-' && this.posiciones[2][1]!='-' && 
-        this.posiciones[2][2]!='-')
+        this.posiciones[2][2]!='-'){
           this.empate=true;
+          this.resulService.agregarResultado("Empató","Tateti");
+        }
   }
 
   Logout(){
     this.auth.Logout();
+  }
+
+  public verificar(){
+      if(this.ganador==true)
+          return true;
+      else
+          return false;
   }
 }

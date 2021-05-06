@@ -27,44 +27,29 @@
       </ng-template>
   </div>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div style="text-align:center">
-    <h1>
-      {{nuevoJuego.nombre}}
-    </h1>
+  <div class="pricing-header mx-auto text-center">
+    <h1 class="display-4">Simón dice</h1>    
     <hr>
+</div>
 
-  </div>
-
-  
   <div class="container">
     <div class="simonBoard">
 
-      <div class="pad" id="pad1" colour="green"></div>
-      <div class="pad" id="pad2" colour="red"></div>
-      <div class="pad" id="pad3" colour="yellow"></div>
-      <div class="pad" id="pad4" colour="blue"></div>
-
-      <!-- <div class="pad" id="pad1" colour="green" (click)="validate($event)"></div>
+      <div class="pad" id="pad1" colour="green" (click)="validate($event)"></div>
       <div class="pad" id="pad2" colour="red" (click)="validate($event)"></div>
       <div class="pad" id="pad3" colour="yellow" (click)="validate($event)"></div>
-      <div class="pad" id="pad4" colour="blue" (click)="validate($event)"></div> -->
+      <div class="pad" id="pad4" colour="blue" (click)="validate($event)"></div>
 
       <div class="controls">
-        <!-- <button type="button" class="btn btn-success" (click)="startGame()" id="start">Comienzo</button> -->
-        <button type="button" class="btn btn-success" id="start">Comienzo</button>
+        <button type="button" class="btn btn-success" (click)="startGame()" id="start">Comienzo</button>
         <button type="button" class="btn btn-warning" (click)="restartGame()" id="reset">Nuevo</button>
       </div>
     </div>
   
     <div *ngIf="terminoJuego" id='resultado' class="boton" style="width: 200px; height: 100px;">
-      <!-- <h2>{{resultado}}</h2> -->
+      <div>{{resultado}}</div>
       <!-- <img src="{{imagen}}"> -->
     </div>
-  
-    <!-- <div>
-      <img src="../../../assets/imagenes/outOfOrderadw.jpg" class="boton" style="width: 300px; height: 300px;">
-    </div> -->
   </div>
   <div id="snackbar"></div>
   

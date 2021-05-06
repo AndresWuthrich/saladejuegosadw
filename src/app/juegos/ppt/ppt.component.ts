@@ -11,10 +11,6 @@ import { ResultadosService } from 'src/app/services/resultados.service';
 })
 export class PptComponent implements OnInit {
 
-  // @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
-  // nuevoJuego: Ppt;
-  // ocultarVerificar:boolean = false;
-
   elegido=true;
   resultado:string = '';
 
@@ -29,10 +25,7 @@ export class PptComponent implements OnInit {
   constructor(public auth: AuthService, public resService: ResultadosService, private router: Router) {
     this.resService.cargarResultados().subscribe(() => {});
  
-
-    // this.nuevoJuego = new Ppt();
     console.info("Piedra papel o tijera:");//,this.nuevoJuego);  
-    // this.ocultarVerificar=false;
    }
 
   ngOnInit(): void {
@@ -65,16 +58,6 @@ export class PptComponent implements OnInit {
     }
     console.log(this.resultado);
     //  this.router.navigate(['juegos']);
-    // if( (typeof this.jugadorLogueado !== 'undefined') &&  (this.jugadorLogueado!== null))
-    // {
-    //   this.nuevoJuego.gano= this.nuevoJuego.verificar();
-    //   this.nuevoJuego.jugador=this.jugadorLogueado.mail;
-    // }
-    // else{
-    //   this.nuevoJuego.gano= this.nuevoJuego.verificar();
-    // }
-
-    // this.servicio.guardarJuego(this.nuevoJuego);
   }
 
   public verificar(): boolean {
