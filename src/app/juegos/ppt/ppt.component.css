@@ -17,10 +17,39 @@ button {
     width: 100%;
 }
 
-button:hover {
-    opacity: 0.8;
+img{
+    height: 40%;
+    width: 40%;
 }
 
-div{
-    font-family:'Gill Sans';
+button:hover { opacity: 0.8;}
+
+body{ font-family:'Gill Sans';}
+
+.body{
+position: relative;
+/* background-color: lightsalmon; */
+z-index: 1;
 }
+.body:before{
+content: "";
+position: absolute;
+z-index: -1;
+background-image:url('../../../assets/imagenes/games5.png');
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+opacity: .05;
+}
+
+.container { max-width: 960px;}
+  
+.pricing-header { max-width: 700px;}
+
+.card-deck .card { min-width: 220px; }
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }

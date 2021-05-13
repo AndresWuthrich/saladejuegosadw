@@ -8,14 +8,25 @@
     box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
 }
 
-.formulario div[class^="col-md-"] {
-    height: 90px;
-}
+.formulario div[class^="col-md-"] { height: 90px;}
 
-.invalid {
-    color: red;
+.invalid { color: red;}
+
+body{ font-family:'Gill Sans';}
+
+.body{
+position: relative;
+background-color:lightyellow;
+z-index: 1;
 }
-body{
-    background-color:lightyellow;
-    font-family:'Gill Sans';
+.body:before{
+content: "";
+position: absolute;
+z-index: -1;
+background-image:url('../../../assets/imagenes/games5.png');
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+opacity: .05;
 }

@@ -1,4 +1,4 @@
-<body>
+<body class="body">
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
         <h5 class="my-0 mr-md-auto font-weight-normal">Sala de Juegos</h5>
@@ -26,21 +26,36 @@
         <hr>
     </div>
     
-    
-    <div>
-      <div>
-        <div *ngFor="let chat of chat.chats" [ngClass]="{ 'text-right': auth.usuario.uid == chat.uid }">
-          <span class="badge" [ngClass]="{ 'badge-primary': auth.usuario.uid == chat.uid,
-                                              'badge-success': auth.usuario.uid != chat.uid }">
-            {{ chat.nombre }} {{ chat.fecha | date: 'd/M/yy, h:mm a' }}
-          </span> 
-          <!-- <p>
-            {{ chat.texto }}
-          </p> -->
+    <!-- <div class="container main-container"   class="card-deck mb-3 text-center" class= "row justify-content-around">
+      <div class="chat-window" class= "card mb-4 col-sm-6"> -->
+    <div class="container main-container row justify-content-around" >
+      <div class="chat-window col-sm-6">
+        <div class="app-mensajes">
+          <div *ngFor="let chat of chat.chatsEmail" [ngClass]="{ 'text-right': auth.usuario.uid == chat.uid }">
+            <span class="badge" [ngClass]="{ 'badge-primary': auth.usuario.uid == chat.uid,
+            'badge-success': auth.usuario.uid != chat.uid }">
+              {{ chat.nombre }} {{ chat.fecha | date: 'd/M/yy, h:mm a' }}
+            </span> 
+            <p> {{ chat.texto }} </p>
+          </div>
         </div>
+
+        <input class="form-control" type="text" [(ngModel)]="mensaje" placeholder="Mensaje">
+        <button class="btn btn-primary" (click)="enviarMensaje()">Enviar mensaje</button>
       </div>
 
-      <input class="form-control" type="text" [(ngModel)]="mensaje" placeholder="Mensaje">
-      <button (click)="enviarMensaje()">Enviar mensaje</button>
+      <div class="chat-window">
+        <div class="app-mensajes col-sm-6">
+          <div *ngFor="let chat of chat.chats" [ngClass]="{ 'text-right': auth.usuario.uid == chat.uid }">
+            <span class="badge" [ngClass]="{ 'badge-primary': auth.usuario.uid == chat.uid,
+                                                'badge-success': auth.usuario.uid != chat.uid }">
+              {{ chat.nombre }} {{ chat.fecha | date: 'd/M/yy, h:mm a' }}
+            </span> 
+            <p> {{ chat.texto }} </p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-</body>
+  </body>

@@ -15,14 +15,23 @@ button {
     width: 30%;
 }
 
-button:hover {
-    opacity: 0.8;
-}
+button:hover { opacity: 0.8;}
 
-div{
-    font-family:'Gill Sans';
-}
+body{ font-family:'Gill Sans';}
 
-h2, h3{
-    color: white;
+.body{
+position: relative;
+/* background-color: lightsalmon; */
+z-index: 1;
+}
+.body:before{
+content: "";
+position: absolute;
+z-index: -1;
+background-image:url('../../../assets/imagenes/games5.png');
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+opacity: .05;
 }

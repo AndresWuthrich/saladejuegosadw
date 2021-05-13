@@ -61,9 +61,9 @@ export class PptComponent implements OnInit {
   }
 
   public verificar(): boolean {
-    if((this.elegidoMaquina=="piedra" && this.elegidoUsuario=="papel") || 
-    (this.elegidoMaquina=="tijera" && this.elegidoUsuario=="piedra") || 
-    (this.elegidoMaquina=="papel" && this.elegidoUsuario=="tijera"))
+    if((this.elegidoMaquina=="PIEDRA" && this.elegidoUsuario=="papel") || 
+    (this.elegidoMaquina=="TIJERA" && this.elegidoUsuario=="piedra") || 
+    (this.elegidoMaquina=="PAPEL" && this.elegidoUsuario=="tijera"))
         return true;
     else 
         return false;
@@ -72,10 +72,10 @@ export class PptComponent implements OnInit {
   public generarMaquina():string{
       this.numeroRandom=Math.floor((Math.random()*100)+1);
       if(this.numeroRandom>66){
-          return "piedra";
+          return "PIEDRA";
       }else if(this.numeroRandom>33)
-          return "papel";
+          return "PAPEL";
       else 
-          return "tijera";
+          return "TIJERA";
   }
 }

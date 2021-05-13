@@ -1,7 +1,6 @@
 import { Component, OnInit ,Input, Output, EventEmitter } from '@angular/core';
 import { Event, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Simon } from 'src/app/clases/simon';
 import { AuthService } from 'src/app/services/auth.service';
 import * as $ from 'jquery';
 import { ResultadosService } from 'src/app/services/resultados.service';
@@ -13,8 +12,6 @@ import { ResultadosService } from 'src/app/services/resultados.service';
 })
 export class SimonComponent implements OnInit {
   nivel= 0;
-  // secuencia: Array<any>;
-  // subnivel: number;
   resultado: string = '';
   terminoJuego:boolean;
 
@@ -65,7 +62,7 @@ export class SimonComponent implements OnInit {
         this.currentStep++;
       }
       else{
-        this.resultado="Fallaste";
+        this.resultado="PERDISTE";
         this.terminoJuego = true;
 
         this.resService.agregarResultado("Perdió","Simón");
@@ -81,7 +78,7 @@ export class SimonComponent implements OnInit {
   winGame(){
     let self = this;
     if(this.level === 3){
-      this.resultado="Ganaste!!!";
+      this.resultado="GANASTE!!!";
       this.terminoJuego = true;
 
       this.resService.agregarResultado("Ganó","Simón");

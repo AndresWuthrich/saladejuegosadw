@@ -1,5 +1,20 @@
-body{
-    background-color: lightslategray;
-    font-family:'Gill Sans';
+body{ font-family:'Gill Sans';}
+
+.body{
+position: relative;
+background-color: lightslategray;
+z-index: 1;
+}
+
+.body:before{
+content: "";
+position: absolute;
+z-index: -1;
+background-image:url('../../../assets/imagenes/games5.png');
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+opacity: .05;
 }
 

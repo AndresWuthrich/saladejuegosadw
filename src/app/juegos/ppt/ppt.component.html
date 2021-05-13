@@ -1,4 +1,4 @@
-<body>
+<body class="body">
 
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-normal">Sala de Juegos</h5>
@@ -11,6 +11,7 @@
       <div *ngIf="userLogueado | async as user">
         <nav class="my-2 my-md-0 mr-md-3">
           <a class="p-2 text-dark" routerLink="/chat">Chat</a>
+          <a class="p-2 text-dark" routerLink="/encuesta">Encuesta</a>
         </nav>
       </div>
     </nav>
@@ -28,29 +29,29 @@
   </div>
 
     <div class="pricing-header mx-auto text-center">
-      <h1 class="display-4">Ppt</h1>    
+      <h1 class="display-4">Piedra, papel o tijera</h1>    
       <hr>
   </div>
 
-  <div>
-        <div>
-           <p><button class="button btn btn-info btn-lg" (click)="jugar('piedra')">Piedra</button></p>
+  <div class="card-deck mb-3 text-center" class= "row justify-content-around">
+        <div class="card mb-4 col-sm-6 col-lg-3 box-shadow">
+           <p><button class="button btn btn-info btn-lg" (click)="jugar('piedra')"><img src="../../../assets/imagenes/piedra.jpg" /></button></p>
         </div>
-        <div>
-          <p><button class="button btn btn-info btn-lg" (click)="jugar('papel')">Papel</button></p>
+        <div class="card mb-4 col-sm-6 col-lg-3 box-shadow">
+          <p><button class="button btn btn-info btn-lg" (click)="jugar('papel')"><img src="../../../assets/imagenes/papel.jpg" /></button></p>
         </div>
-        <div>
-          <p><button class="button btn btn-info btn-lg" (click)="jugar('tijera')">Tijera</button></p>
+        <div class="card mb-4 col-sm-6 col-lg-3 box-shadow">
+          <p><button class="button btn btn-info btn-lg" (click)="jugar('tijera')"><img src="../../../assets/imagenes/tijera.jpg" /></button></p>
         </div>
+  </div>  
 
-        <div [hidden]="elegido" class="container" style="text-align:center">
-            <h2>Elemento elegido por tu rival:</h2>
-            <h2>{{this.elegidoMaquina}}</h2>
-        </div>
+    <div [hidden]="elegido" class="container" style="text-align:center">
+        <h2>Elemento elegido por tu rival:</h2>
+        <h2>{{this.elegidoMaquina}}</h2>
+    </div>
+
+    <div [hidden]="elegido">
     
-        <div [hidden]="elegido">
-        
-          <h2>{{resultado}}</h2>
-        </div>
-      </div>  
+      <h2>{{resultado}}</h2>
+    </div>
 </body>

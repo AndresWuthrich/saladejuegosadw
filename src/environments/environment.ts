@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  baseUrlApi: 'https://breakingbadapi.com/api/characters/',
+
   firebase:{
     apiKey: "AIzaSyDKeQmV6kvQzASjBL1u3gIbEV3p2xiJuMU",
     authDomain: "saladejuegosadw.firebaseapp.com",

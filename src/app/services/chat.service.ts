@@ -15,15 +15,16 @@ export class ChatService {
 
   private itemsCollection: AngularFirestoreCollection<Mensaje>;
   public chats: Mensaje[] = [];
+  public chatsEmail: Mensaje[] = [];
   public usuario: any = {};
 
   constructor(private afs: AngularFirestore, public auth: AuthService) {
-    this.itemsCollection = this.afs.collection<Mensaje>('chats');
+    // this.itemsCollection = this.afs.collection<Mensaje>('chats');
       }
 
   cargarMensajes() {
     this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha', 'desc')
-      .limit(5));
+      .limit(25));
 
     return this.itemsCollection.valueChanges().pipe(
       map((mensajes: Mensaje[]) => {
@@ -38,6 +39,28 @@ export class ChatService {
       })
     );
   }
+
+  cargarMensajesEmail() {
+    this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha', 'desc')
+      .limit(25));
+
+    return this.itemsCollection.valueChanges().pipe(
+      map((mensajes: Mensaje[]) => {
+        console.log(mensajes);
+        this.chatsEmail = [];
+
+        for (const mensaje of mensajes) {
+          if(mensaje.nombre == this.auth.usuario.email){
+            this.chatsEmail.unshift(mensaje);
+
+          }
+        }
+
+        return this.chatsEmail;
+      })
+    );
+  }
+
 
   agregarMensaje(texto: string) {
     const mensaje: Mensaje = {

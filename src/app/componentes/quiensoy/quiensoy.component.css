@@ -1,50 +1,49 @@
-html {
-    font-size: 14px;
-  }
+html { font-size: 14px;}
+
   @media (min-width: 768px) {
     html {
       font-size: 16px;
     }
   }
   
-  .container {
-    max-width: 960px;
-  }
+  .container { max-width: 960px;}
   
-  .pricing-header {
-    max-width: 700px;
-  }
+  .pricing-header { max-width: 700px;}
   
-  .card-deck .card {
-    min-width: 220px;
-  }
+  .card-deck .card { min-width: 220px;}
   
   .border-top { border-top: 1px solid #e5e5e5; }
   .border-bottom { border-bottom: 1px solid #e5e5e5; }
-  
   .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
     
+body{ font-family:'Gill Sans';}
 
-body{
-  background-color: lightseagreen;
-  font-family:'Gill Sans';
+.body{
+position: relative;
+background-color: lightseagreen;
+z-index: 1;
+}
+.body:before{
+content: "";
+position: absolute;
+z-index: -1;
+background-image:url('../../../assets/imagenes/games5.png');
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+opacity: .05;
 }
 
-.imagenDeQuienSoy{
-    width: 100%;
-   
-    }
+.imagenDeQuienSoy{ width: 100%;}
 /* body {
     line-height: 1.8;
     color: #f5f6f7;
 } */
 p {font-size: 16px;}
+
 .margin {margin-bottom: 45px;}
-/*.bg-1 { 
-    /* background-image:url('../../../assets/imagenes/backTron2adw.png'); */
-    /* background-color: #1abc9c; */
-    /* color: #ffffff;
-} */
+
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
@@ -61,15 +60,3 @@ p {font-size: 16px;}
     padding-top: 70px;
     padding-bottom: 70px;
 }
-/* .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-}
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
-} */

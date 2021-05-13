@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { EncuestaService } from 'src/app/services/encuesta.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-encuesta',
@@ -23,7 +24,7 @@ export class EncuestaComponent implements OnInit {
       'nombre': ['', Validators.required],
       'apellido': ['', Validators.required],
       'edad': ['', [Validators.required, Validators.min(18), Validators.max(99)]],
-      'telefono': ['', Validators.required],
+      'telefono': ['', [Validators.required, Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
       // 'sexo': ['', Validators.required],
       // 'email': ['', Validators.required, Validators.email],
       'seleccionJuego': ['', Validators.required],
@@ -56,5 +57,24 @@ export class EncuestaComponent implements OnInit {
     // var terminos = this.formEncuesta.controls['terminos'].value;
 
     this.authEncuesta.agregarEncuesta(nombre, apellido, edad, telefono, seleccionJuego, puntaje, opinion)
+    .finally(()=>{this.mostrarResultado("exito")});
   }
+
+  mostrarResultado(resultado: string){
+    if(resultado=="exito"){
+      Swal.fire({
+        title: 'Encuesta cargada con éxito'
+      });
+      
+      // if(aux == "correcta"){
+      //   Swal.fire({
+      //     icon: 'success',
+      //     title: '¡Muchas gracias!',
+      //     text: 'Su encuesta se cargo con exito! ',
+      //   }).finally(()=>{
+      //     this.router.navigate(['/home']);
+      //   });
+      }
+    }
+
 }

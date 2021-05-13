@@ -13,6 +13,7 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 })
 export class ChatComponent implements OnInit {
 
+  public chats: Observable<any[]>;
   mensaje: string = '';
   // mensaje: Mensaje = new Mensaje();
   elemento: any;
@@ -22,19 +23,30 @@ export class ChatComponent implements OnInit {
   constructor(public auth: AuthService, public chat: ChatService) {
     this.chat.cargarMensajes()
     .subscribe(() => {
+      console.log(this.elemento);
+      if(this.elemento){
+        setTimeout(() => {
+          this.elemento.scrollTop = this.elemento.scrollHeight;
+        }, 6000);
+  
+      }
 
-      setTimeout(() => {
-        this.elemento.scrollTop = this.elemento.scrollHeight;
-      }, 20);
     });
-   }
+
+    this.chat.cargarMensajesEmail()
+    .subscribe(() => {
+      console.log(this.elemento);
+      if(this.elemento){
+        setTimeout(() => {
+          this.elemento.scrollTop = this.elemento.scrollHeight;
+        }, 6000);
+  
+      }
+
+    });
+  }
 
    enviarMensaje() {
-    // console.log("msg 1");
-    // this.chat.create(this.mensaje).then(() => {
-    //   console.log("Mensaje enviado");
-    // });
-
     console.log(this.mensaje);
 
     if (this.mensaje.length === 0) {
@@ -42,11 +54,13 @@ export class ChatComponent implements OnInit {
     }
 
     this.chat.agregarMensaje(this.mensaje)
-      .then(() => this.mensaje = '')
+      .then(() => this.mensaje = "")
       .catch((err) => console.error('error al enviar', err));
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.elemento = document.getElementById('app-mensajes');
+    console.log("sad"+this.elemento);
   }
 
   Logout(){

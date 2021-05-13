@@ -32,13 +32,16 @@ export class ResultadosService {
   }
 
   agregarResultado(resultado: string, juego: string) {
+    console.log(resultado);
+    console.log(juego);
     let result: Resultado = {
       fecha: new Date().getTime(),
       resultado: resultado,
       juego: juego,
       uid: this.auth.usuario.uid,
-      mail: this.auth.usuario.email,
+      mail: this.auth.usuario.email
     }
+    console.log(result);
     return this.itemsCollection.add({...result});
   }
 }
