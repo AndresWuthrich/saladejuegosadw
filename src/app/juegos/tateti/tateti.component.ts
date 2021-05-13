@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ResultadosService } from 'src/app/services/resultados.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tateti',
   templateUrl: './tateti.component.html',
@@ -66,11 +66,20 @@ export class TatetiComponent implements OnInit {
       console.log("X");
       this.ganoX=true;
       this.ganador=true;
+      Swal.fire({
+        title: 'PERDISTE',
+        text: '¿¡Lo intentarás de nuevo!?'
+      });
+
       this.resulService.agregarResultado("Perdió","Tateti");
     }  
     else{
       this.ganoO=true;
       this.ganador=true;
+      Swal.fire({
+        title: 'GANASTE'
+      });
+
       this.resulService.agregarResultado("Ganó","Tateti");
     }  
 }
@@ -97,6 +106,10 @@ export class TatetiComponent implements OnInit {
         this.posiciones[1][1]!='-' && this.posiciones[1][2]!='-' && this.posiciones[2][0]!='-' && this.posiciones[2][1]!='-' && 
         this.posiciones[2][2]!='-'){
           this.empate=true;
+          Swal.fire({
+            title: 'EMPATASTE',
+            text: '¿¡Lo intentarás de nuevo!?'
+          });
           this.resulService.agregarResultado("Empató","Tateti");
         }
   }

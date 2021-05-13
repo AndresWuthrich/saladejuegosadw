@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ResultadosService } from 'src/app/services/resultados.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ppt',
@@ -44,15 +45,27 @@ export class PptComponent implements OnInit {
     this.elegido=false;
 
     if(this.verificar()){
-      this.resultado="GANASTE";
+      Swal.fire({
+        title: '¡GANASTE!'
+      });
+      // this.resultado="GANASTE";
       this.resService.agregarResultado("Ganó","Ppt");
     }
     else if (this.elegidoUsuario==this.elegidoMaquina){
-      this.resultado="EMPATASTE... ¿Lo intentarás de nuevo?";
+      Swal.fire({
+        title: 'EMPATASTE',
+        text: '¿¡Lo intentarás de nuevo!?'
+      });
+
+      // this.resultado="EMPATASTE... ¿Lo intentarás de nuevo?";
       this.resService.agregarResultado("Empató","Ppt");
     }
     else{
-      this.resultado="PERDISTE... ¿Lo intentarás de nuevo?";
+      Swal.fire({
+        title: 'PERDISTE',
+        text: '¿¡Lo intentarás de nuevo!?'
+      });
+      // this.resultado="PERDISTE... ¿Lo intentarás de nuevo?";
       this.resService.agregarResultado("Perdió","Ppt");
 
     }

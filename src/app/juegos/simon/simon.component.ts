@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import * as $ from 'jquery';
 import { ResultadosService } from 'src/app/services/resultados.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-simon',
@@ -62,7 +63,11 @@ export class SimonComponent implements OnInit {
         this.currentStep++;
       }
       else{
-        this.resultado="PERDISTE";
+        Swal.fire({
+          title: 'PERDISTE',
+          text: '¿¡Lo intentarás de nuevo!?'
+        });
+        // this.resultado="PERDISTE";
         this.terminoJuego = true;
 
         this.resService.agregarResultado("Perdió","Simón");
@@ -78,7 +83,10 @@ export class SimonComponent implements OnInit {
   winGame(){
     let self = this;
     if(this.level === 3){
-      this.resultado="GANASTE!!!";
+      Swal.fire({
+        title: 'GANASTE'
+      });
+      // this.resultado="GANASTE!!!";
       this.terminoJuego = true;
 
       this.resService.agregarResultado("Ganó","Simón");

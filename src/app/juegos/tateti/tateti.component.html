@@ -53,11 +53,11 @@
             <button mat-raised-button [disabled]="ganador" class="button btn btn-info btn-lg" (click)="presion(2,2)">{{posiciones[2][2]}}</button>
         </div>
 
-        <div>
+        <!-- <div>
           <div [hidden]="!ganoO">PERDISTE</div>
           <div [hidden]="!ganoX">GANASTE</div> 
           <div [hidden]="!empate">Empate</div> 
-        </div>
+        </div> -->
     
         <div>
             <button [hidden]="!ganador" class="btn btn-success btn-lg" (click)="nuevoTateti()">Nuevo</button>
